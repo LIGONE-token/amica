@@ -84,10 +84,28 @@
     <div class="messages" id="messages"></div>
   </div>
 
-  <!-- Script bleibt wie es ist -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const button = document.getElementById("send");
+    const textarea = document.getElementById("input");
+    const messages = document.getElementById("messages");
+
+    button.addEventListener("click", function () {
+      const text = textarea.value.trim();
+      if (!text) return;
+
+      const p = document.createElement("p");
+      p.textContent = text;
+      messages.appendChild(p);
+
+      textarea.value = "";
+    });
+  });
+</script>
 
 </body>
 
 </html>
+
 
 

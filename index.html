@@ -35,7 +35,7 @@ pre {
 <h2>Ein Raum für Gespräche ohne Ablenkung.</h2>
 <p>Nur Worte. Keine Bewertung. Kein Urteil.</p>
 
-<form method="post">
+<form onsubmit="return false;">
   <textarea name="text" placeholder="Schreibe hier …"></textarea><br>
   <button type="submit">Absenden</button>
 </form>
@@ -58,3 +58,4 @@ if (file_exists($file)) {
 
 </body>
 </html>
+

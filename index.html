@@ -2,122 +2,191 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <title>Raum</title>
- <style>
-  body {
-    margin: 0;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    background: #f6f6f6;
-    color: #222;
-  }
+  <title>AMICA – Ein Raum für Gespräche</title>
 
-  .container {
-    max-width: 720px;
-    margin: 60px auto;
-    padding: 0 20px;
-  }
+  <!-- Cache vermeiden (GitHub Pages freundlich) -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 
-  h2 {
-    font-weight: 500;
-    margin-bottom: 40px;
-  }
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f6f6f6;
+      color: #222;
+    }
 
-  .input-area {
-    margin-bottom: 60px;
-  }
+    .container {
+      max-width: 720px;
+      margin: 60px auto;
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
 
-  textarea {
-    width: 100%;
-    min-height: 90px;
-    font-size: 16px;
-    line-height: 1.6;
-    padding: 14px;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-    resize: vertical;
-    box-sizing: border-box;
-    background: #fff;
-  }
+    h2 {
+      font-weight: 500;
+      margin-bottom: 40px;
+    }
 
-  textarea:focus {
-    outline: none;
-    border-color: #bbb;
-  }
+    .messages {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-bottom: 60px;
+    }
 
-  button {
-    margin-top: 12px;
-    padding: 10px 20px;
-    font-size: 15px;
-    border-radius: 20px;
-    border: none;
-    background: #222;
-    color: #fff;
-    cursor: pointer;
-  }
+    .messages p {
+      background: #fff;
+      padding: 18px 20px;
+      border-radius: 10px;
+      line-height: 1.7;
+      margin: 0;
+    }
 
-  .messages {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-  }
+    .input-area {
+      width: 100%;
+      margin-bottom: 80px;
+    }
 
-  .messages p {
-    background: #fff;
-    padding: 18px 20px;
-    border-radius: 10px;
-    line-height: 1.7;
-    margin: 0;
-  }
-   .container * {
-  box-sizing: border-box;
-}
+    textarea {
+      width: 100%;
+      min-height: 90px;
+      font-size: 16px;
+      line-height: 1.6;
+      padding: 14px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      resize: vertical;
+      box-sizing: border-box;
+      background: #fff;
+    }
 
-.input-area {
-  width: 100%;
-}
+    textarea:focus {
+      outline: none;
+      border-color: #bbb;
+    }
 
-</style>
+    button {
+      margin-top: 12px;
+      padding: 10px 22px;
+      font-size: 15px;
+      border-radius: 20px;
+      border: none;
+      background: #222;
+      color: #fff;
+      cursor: pointer;
+    }
 
+    button:hover {
+      background: #000;
+    }
+
+    footer.explanation {
+      margin-top: 120px;
+      font-size: 14px;
+      color: #555;
+      line-height: 1.7;
+    }
+
+    footer.explanation h3 {
+      font-size: 15px;
+      margin-top: 40px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    footer.explanation p {
+      margin-top: 10px;
+    }
+  </style>
 </head>
+
 <body>
 
   <div class="container">
     <h2>Was fühlst Du jetzt?</h2>
 
+    <!-- Gesprächsraum -->
     <div class="messages" id="messages"></div>
-    </div>
-    
+
+    <!-- Eingabe -->
     <div class="input-area">
       <textarea id="input" placeholder="Schreiben ohne Bewertung. Nur Worte."></textarea>
-      <button id="send">Absenden</button>
+      <button id="send" type="button">Absenden</button>
     </div>
 
-    <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const button = document.getElementById("send");
-    const textarea = document.getElementById("input");
-    const messages = document.getElementById("messages");
+    <!-- Erklärung & Haltung -->
+    <footer class="explanation">
 
-    button.addEventListener("click", function () {
-      const text = textarea.value.trim();
-      if (!text) return;
+      <h3>Datenschutz & Anonymität</h3>
+      <p>
+        Dieser Raum speichert keine personenbezogenen Daten.
+        Es gibt keine Konten, keine Profile, keine Cookies, kein Tracking.
+        Beiträge sind anonym und nicht rückverfolgbar.
+        Was nicht gespeichert wird, kann nicht ausgewertet oder weitergegeben werden.
+      </p>
 
-      const p = document.createElement("p");
-      p.textContent = text;
-       messages.prepend(p);
+      <h3>Warum dieser Raum anders ist</h3>
+      <p>
+        Die meisten Plattformen sind keine Gesprächsräume, sondern Verhaltenssysteme.
+        Likes, Bewertungen, Reichweite und Algorithmen lenken,
+        was gesagt wird – und was lieber nicht.
+        AMICA verzichtet bewusst auf all das.
+      </p>
 
-      textarea.value = "";
+      <h3>Warum Menschlichkeit hier im Mittelpunkt steht</h3>
+      <p>
+        Kommunikation ist etwas zutiefst Menschliches.
+        Wenn Gespräche gemessen werden, verändern sie sich.
+        Wenn Sichtbarkeit belohnt wird, wird Lautstärke wichtiger als Inhalt.
+        Dieser Raum nimmt diesen Druck bewusst weg.
+      </p>
+
+      <h3>Was wir erreichen wollen</h3>
+      <p>
+        Wir möchten erleben, wie Kommunikation aussieht,
+        wenn niemand bewertet wird und nichts optimiert ist.
+        Wenn Provokation keinen Vorteil bringt.
+        Wenn Zuhören wieder möglich wird.
+      </p>
+
+      <h3>Ein Blick nach vorn</h3>
+      <p>
+        AMICA ist bewusst einfach.
+        Alles, was künftig entstehen könnte,
+        wird derselben Haltung folgen:
+        Gleichwertigkeit, keine Überwachung,
+        keine Verhaltenslenkung.
+        Nicht alles, was technisch möglich ist,
+        ist menschlich sinnvoll.
+      </p>
+
+      <p><em>
+        Dieser Raum ist kein Experiment mit Menschen.
+        Er ist ein Experiment für Menschen.
+      </em></p>
+
+    </footer>
+  </div>
+
+  <!-- Minimale Interaktion (lokal, ohne Speicherung) -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const button = document.getElementById("send");
+      const textarea = document.getElementById("input");
+      const messages = document.getElementById("messages");
+
+      button.addEventListener("click", function () {
+        const text = textarea.value.trim();
+        if (!text) return;
+
+        const p = document.createElement("p");
+        p.textContent = text;
+        messages.prepend(p);
+
+        textarea.value = "";
+      });
     });
-  });
-</script>
+  </script>
 
 </body>
-
 </html>
-
-
-
-
-
-
-
